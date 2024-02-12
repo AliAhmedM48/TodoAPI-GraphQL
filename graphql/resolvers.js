@@ -1,10 +1,22 @@
 const Task = require('../models/task');
+const connectDB = require("../db");
+const mongoose = require("mongoose")
 
 module.exports = {
 
     Query: {
         // * Read
-        tasks: async () => await Task.find(),
+
+        tasks: async () => {
+            connectDB();
+            return await Task.find().then((tasks) => {
+                mongoose.connection.close()
+                    .then(() => console.log("closed"))
+                return tasks;
+            })
+
+
+        },
         task: async ({ id }) => await Task.findById(id),
 
     },

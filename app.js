@@ -31,7 +31,7 @@ async function startServer() {
 
 startServer().then(() => {
     //* listening to server and connecting to db
-    connectDB();
+    // connectDB();
     app.listen(port, "localhost", () => {
         console.log(`Example app listening on port ${port}`)
     })
