@@ -29,10 +29,9 @@ async function startServer() {
     server.applyMiddleware({ app });
 }
 
+//* Listening to server and connecting to db
 startServer().then(() => {
-    //* listening to server and connecting to db
-    // connectDB();
     app.listen(port, "localhost", () => {
-        console.log(`Example app listening on port ${port}`)
-    })
-})
+        console.log(`Example app listening on port ${port}`);
+    });
+});

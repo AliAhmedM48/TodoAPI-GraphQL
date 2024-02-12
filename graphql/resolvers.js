@@ -9,11 +9,12 @@ module.exports = {
 
         tasks: async () => {
             connectDB();
-            return await Task.find().then((tasks) => {
-                mongoose.connection.close()
-                    .then(() => console.log("closed"))
-                return tasks;
-            })
+            return await Task.find()
+                .then((tasks) => {
+                    mongoose.connection.close()
+                        .then(() => console.log("closed"))
+                    return tasks;
+                })
 
 
         },
